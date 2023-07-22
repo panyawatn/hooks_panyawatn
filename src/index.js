@@ -59,10 +59,20 @@ function App() {
 
   const [totalItems, setTotalItems] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+  // สร้างตัวนับจำนวน
+  const [totalItems1, setTotalItems1] = useState(0);
+  const [totalPrice1, setTotalPrice1] = useState(0);
+
+  const [totalItems2, setTotalItems2] = useState(0);
+  const [totalPrice2, setTotalPrice2] = useState(0);
+
+  const [totalItems3, setTotalItems3] = useState(0);
+  const [totalPrice3, setTotalPrice3] = useState(0);
 
   return (
     <Container className="p-3 my-3">
       <Row className="border">
+        {/* รายการสินค้าที่ 1 */}
         <Col className="text-center">
           <Product
             name={products[0].name}
@@ -70,15 +80,35 @@ function App() {
             image={products[0].image}
           />
           <Button
-            style={{ margin: "5px 0px" }}
+            style={{ margin: "5px 5px 5px 5px" }}
             onClick={() => {
+              // นับราคารวม
               setTotalItems(totalItems + 1);
               setTotalPrice(totalPrice + products[0].price);
+              // นับเเยกรายาการ
+              setTotalItems1(totalItems1 + 1);
+              setTotalPrice1(totalPrice1 + products[0].price);
             }}
           >
             เพิ่มลงตระกร้า
           </Button>
+
+          <Button
+            variant="warning"
+            style={{ margin: "5px 5px 5px 5px" }}
+            onClick={() => {
+              // นับราคารวม
+              setTotalItems(totalItems - 1);
+              setTotalPrice(totalPrice - products[0].price);
+              // นับเเยกรายาการ
+              setTotalItems1(totalItems1 - 1);
+              setTotalPrice1(totalPrice1 - products[0].price);
+            }}
+          >
+            หยิบออกจากตระกร้า
+          </Button>
         </Col>
+        {/* รายการสินค้าที่ 2 */}
         <Col className="text-center">
           <Product
             name={products[1].name}
@@ -88,13 +118,33 @@ function App() {
           <Button
             style={{ margin: "5px 0px" }}
             onClick={() => {
+              // นับราคารวม
               setTotalItems(totalItems + 1);
               setTotalPrice(totalPrice + products[1].price);
+              // นับเเยกรายาการ
+              setTotalItems2(totalItems2 + 1);
+              setTotalPrice2(totalPrice2 + products[1].price);
             }}
           >
             เพิ่มลงตระกร้า
           </Button>
+
+          <Button
+            variant="warning"
+            style={{ margin: "5px 5px 5px 5px" }}
+            onClick={() => {
+              // นับราคารวม
+              setTotalItems(totalItems - 1);
+              setTotalPrice(totalPrice - products[1].price);
+              // นับเเยกรายาการ
+              setTotalItems2(totalItems2 - 1);
+              setTotalPrice2(totalPrice2 - products[1].price);
+            }}
+          >
+            หยิบออกจากตระกร้า
+          </Button>
         </Col>
+        {/* รายการสินค้าที่ 3 */}
         <Col className="text-center">
           <Product
             name={products[2].name}
@@ -104,8 +154,27 @@ function App() {
           <Button
             style={{ margin: "5px 0px" }}
             onClick={() => {
+              // นับราคารวม
               setTotalItems(totalItems + 1);
               setTotalPrice(totalPrice + products[2].price);
+              // นับเเยกรายาการ
+              setTotalItems3(totalItems3 + 1);
+              setTotalPrice3(totalPrice3 + products[2].price);
+            }}
+          >
+            เพิ่มลงตระกร้า
+          </Button>
+
+          <Button
+            variant="warning"
+            style={{ margin: "5px 5px 5px 5px" }}
+            onClick={() => {
+              // นับราคารวม
+              setTotalItems(totalItems - 1);
+              setTotalPrice(totalPrice - products[2].price);
+              // นับเเยกรายาการ
+              setTotalItems3(totalItems3 - 1);
+              setTotalPrice3(totalPrice3 - products[2].price);
             }}
           >
             เพิ่มลงตระกร้า
@@ -113,10 +182,29 @@ function App() {
         </Col>
       </Row>
 
-      <Row className="border">
+      {/* เเยกรายการสินค้าที่ 1 */}
+      <Row className="border mt-5">
+        <Col className="text-center">
+          <p>จำนวนสินค้าในตระกร้า {totalItems1} ชิ้น</p>
+          <p>ราคาสินค้าในตระกร้าทั้งหมด {totalPrice1} บาท</p>
+        </Col>
+        {/* เเยกรายการสินค้าที่ 1 */}
+        <Col className="text-center">
+          <p>จำนวนสินค้าในตระกร้า {totalItems2} ชิ้น</p>
+          <p>ราคาสินค้าในตระกร้าทั้งหมด {totalPrice2} บาท</p>
+        </Col>
+        {/* เเยกรายการสินค้าที่ 1 */}
+        <Col className="text-center">
+          <p>จำนวนสินค้าในตระกร้า {totalItems3} ชิ้น</p>
+          <p>ราคาสินค้าในตระกร้าทั้งหมด {totalPrice3} บาท</p>
+        </Col>
+      </Row>
+
+      {/* สินค้าทั้งหมด */}
+      <Row className="border mt-5">
         <Col className="text-center">
           <p>จำนวนสินค้าในตระกร้า {totalItems} ชิ้น</p>
-          <p>ราคาสินค้าในตระกร้าทั้งหมด {totalPrice} บาท</p>
+          <h4>ราคาสินค้าในตระกร้าทั้งหมด {totalPrice} บาท</h4>
         </Col>
       </Row>
     </Container>
